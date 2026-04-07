@@ -26,11 +26,14 @@ APK output: `app/build/outputs/apk/debug/app-debug.apk`
 
 ## Deploy
 
+Connect to the TV via ADB (WiFi or USB), then run:
+
 ```bash
-./setup.sh
+adb connect <TV_IP>:5555   # for WiFi — preferred for Android TV
+./setup.sh                  # auto-detects IP devices, falls back to emulator
 ```
 
-Requires ADB connection to the TV.
+`setup.sh` prefers network-connected (IP) devices, then falls back to model name matching for emulators.
 
 ## Technical Decisions
 

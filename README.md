@@ -42,15 +42,24 @@ Tested on: **Sony Bravia Android TV 9** (BRAVIA_ATV3_4K_EU)
 ./gradlew assembleDebug
 ```
 
-### 2. Deploy
+### 2. Connect to your TV
 
-Connect to your TV via ADB, then run:
+WiFi (recommended for Android TV):
+```bash
+# Enable Developer Options on TV: Settings > About > tap Build Number 7 times
+# Enable Network debugging in Developer Options
+adb connect <TV_IP>:5555
+```
+
+USB also works if your TV has a data-capable USB port.
+
+### 3. Deploy
 
 ```bash
 ./setup.sh
 ```
 
-This installs the APK, grants overlay permission, and enables the accessibility service.
+This auto-detects your TV (prefers network devices, falls back to emulator), installs the APK, grants overlay permission, and enables the accessibility service.
 
 ### Manual Setup (if setup.sh doesn't work)
 
